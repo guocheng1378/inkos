@@ -8,7 +8,7 @@ powerScaling: true
 eraResearch: false
 pacingRule: "三章内必有明确反馈：打脸、收益兑现、信息反转、地位变化"
 satisfactionTypes: ["打脸", "升级突破", "收益兑现", "智斗碾压", "身份揭示", "底牌亮出"]
-auditDimensions: [1,2,3,4,5,6,7,8,9,10,11,13,14,15,16,17,18,19]
+auditDimensions: [1,2,3,4,5,6,7,8,9,10,11,13,14,15,16,17,18,19,24,25,26]
 ---
 
 ## 题材禁忌

@@ -8,7 +8,7 @@ powerScaling: false
 eraResearch: false
 pacingRule: "氛围递进：安全感→微妙不适→确认异常→恐惧升级→高潮→喘息，循环推进"
 satisfactionTypes: ["真相揭示", "成功逃脱", "反杀怪物", "谜团解开", "同伴获救", "规则发现"]
-auditDimensions: [1,2,3,6,7,8,9,10,13,14,15,16,17,18,19]
+auditDimensions: [1,2,3,6,7,8,9,10,13,14,15,16,17,18,19,24,25,26]
 ---
 
 ## 题材禁忌

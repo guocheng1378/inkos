@@ -8,7 +8,7 @@ powerScaling: false
 eraResearch: true
 pacingRule: "每2-3章一个小回报：商业收益、人脉拓展、对手受挫、信息优势"
 satisfactionTypes: ["商战碾压", "身份揭示", "人脉兑现", "对手打脸", "资源收割", "地位跃升"]
-auditDimensions: [1,2,3,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+auditDimensions: [1,2,3,6,7,8,9,10,11,12,13,14,15,16,17,18,19,24,25,26]
 ---
 
 ## 题材禁忌

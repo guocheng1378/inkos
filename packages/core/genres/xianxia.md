@@ -8,7 +8,7 @@ powerScaling: true
 eraResearch: false
 pacingRule: "修炼/悟道与战斗交替，每3-5章一次小突破或关键收获"
 satisfactionTypes: ["悟道突破", "斗法碾压", "法宝收获", "身份揭示", "天劫渡过", "因果了结"]
-auditDimensions: [1,2,3,4,5,6,7,8,9,10,11,13,14,15,16,17,18,19]
+auditDimensions: [1,2,3,4,5,6,7,8,9,10,11,13,14,15,16,17,18,19,24,25,26]
 ---
 
 ## 题材禁忌
