@@ -48,20 +48,21 @@ Once installed, Claw can invoke all InkOS atomic commands (`draft`/`audit`/`revi
 
 ```bash
 inkos config set-global \
+  --lang en \
   --provider <openai|anthropic|custom> \
   --base-url <API endpoint> \
   --api-key <your API key> \
   --model <model name>
 
 # Example: OpenAI
-# inkos config set-global --provider openai --base-url https://api.openai.com/v1 --api-key sk-xxx --model gpt-4o
+# inkos config set-global --lang en --provider openai --base-url https://api.openai.com/v1 --api-key sk-xxx --model gpt-4o
 # Example: Anthropic
-# inkos config set-global --provider anthropic --base-url https://api.anthropic.com --api-key sk-ant-xxx --model claude-sonnet-4-20250514
+# inkos config set-global --lang en --provider anthropic --base-url https://api.anthropic.com --api-key sk-ant-xxx --model claude-sonnet-4-20250514
 # Example: Any OpenAI-compatible endpoint (proxies, local models, etc.)
-# inkos config set-global --provider custom --base-url https://your-endpoint.com/v1 --api-key sk-xxx --model gpt-4o
+# inkos config set-global --lang en --provider custom --base-url https://your-endpoint.com/v1 --api-key sk-xxx --model gpt-4o
 ```
 
-Saved to `~/.inkos/.env`, shared by all projects. New projects just work without extra config.
+`--lang en` sets English as the default writing language for all projects. Saved to `~/.inkos/.env`. New projects just work without extra config.
 
 **Option 2: Per-project `.env`**
 
@@ -76,6 +77,9 @@ INKOS_LLM_PROVIDER=                               # openai / anthropic / custom 
 INKOS_LLM_BASE_URL=                               # API endpoint
 INKOS_LLM_API_KEY=                                 # API Key
 INKOS_LLM_MODEL=                                   # Model name
+
+# Language (defaults to global setting or genre default)
+# INKOS_DEFAULT_LANGUAGE=en                        # en or zh
 
 # Optional
 # INKOS_LLM_TEMPERATURE=0.7                       # Temperature
