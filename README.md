@@ -3,7 +3,7 @@
   <img src="assets/inkos-text.svg" width="240" height="65" alt="InkOS">
 </p>
 
-<h1 align="center">Autonomous Novel Writing CLI Agent<br><sub>自动化小说写作 CLI Agent</sub></h1>
+<h1 align="center">Autonomous Novel Writing Cli AI Agent<br><sub>自动化小说写作 CLI AI Agent</sub></h1>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@actalk/inkos"><img src="https://img.shields.io/npm/v/@actalk/inkos.svg?color=cb3837&logo=npm" alt="npm version"></a>
@@ -20,7 +20,7 @@
 
 Agent 写小说。写、审、改，全程接管。
 
-**Native English novel writing supported！** — Set `--lang en` to write in English. See [English README](README.en.md) for details.
+**Native English novel writing now supported！** — Set `--lang en` to write in English. See [English README](README.en.md) for details.
 
 ## 快速开始
 
