@@ -364,7 +364,7 @@ inkos branch tree my-book
 inkos branch switch my-book <node-id>
 ```
 
-`interactive-tree` v1 is chapter-end branching only for now. Free-form player actions are out of scope, and `status` / `review` / `export` / `eval` operate on the active branch by default. Use `--all-branches` when you need the full branch tree.
+`interactive-tree` v1 is chapter-end branching only for now. Free-form player actions are out of scope, and `status` / `review` / `export` / `eval` operate on the active branch by default. Use `--all-branches` when you need the full branch tree. `write rewrite` is intentionally blocked for interactive books until a branch-aware rewrite flow exists.
 
 | Command | Description |
 |---------|-------------|

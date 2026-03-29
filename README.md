@@ -352,7 +352,7 @@ inkos branch tree my-book
 inkos branch switch my-book <node-id>
 ```
 
-`interactive-tree` v1 当前只做章节末分支，不支持自由输入动作；`status` / `review` / `export` / `eval` 默认只看当前 active branch，如需查看整棵分支树可加 `--all-branches`。
+`interactive-tree` v1 当前只做章节末分支，不支持自由输入动作；`status` / `review` / `export` / `eval` 默认只看当前 active branch，如需查看整棵分支树可加 `--all-branches`。`write rewrite` 暂未支持互动书，后续会单独做 branch-aware rewrite。
 
 | 命令 | 说明 |
 |------|------|

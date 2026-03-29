@@ -1060,6 +1060,99 @@ describe("CLI integration", () => {
       expect(next).toBe(2);
       await expect(readFile(join(storyDir, "current_state.md"), "utf-8")).resolves.toBe("State at ch1");
     });
+
+    it("rejects rewrite for interactive-tree books until branch-aware rewrite exists", async () => {
+      await stat(join(projectDir, "inkos.json")).catch(() => {
+        run(["init"]);
+      });
+      const state = new StateManager(projectDir);
+      const bookId = "interactive-rewrite";
+      const bookDir = state.bookDir(bookId);
+      const chaptersDir = join(bookDir, "chapters");
+
+      await mkdir(chaptersDir, { recursive: true });
+      await writeFile(
+        join(bookDir, "book.json"),
+        JSON.stringify({
+          id: bookId,
+          title: "Interactive Rewrite",
+          platform: "other",
+          genre: "other",
+          status: "active",
+          targetChapters: 10,
+          chapterWordCount: 2200,
+          narrativeMode: "interactive-tree",
+          createdAt: "2026-03-30T00:00:00.000Z",
+          updatedAt: "2026-03-30T00:00:00.000Z",
+        }, null, 2),
+        "utf-8",
+      );
+      await writeFile(
+        join(chaptersDir, "index.json"),
+        JSON.stringify([
+          { number: 1, title: "Seed", status: "approved", wordCount: 100, createdAt: "", updatedAt: "", auditIssues: [], lengthWarnings: [] },
+          { number: 2, title: "Route A", status: "approved", wordCount: 100, createdAt: "", updatedAt: "", auditIssues: [], lengthWarnings: [] },
+        ], null, 2),
+        "utf-8",
+      );
+      await Promise.all([
+        writeFile(join(chaptersDir, "0001_seed.md"), "# Seed\n\nSeed", "utf-8"),
+        writeFile(join(chaptersDir, "0002_route_a.md"), "# Route A\n\nRoute A", "utf-8"),
+      ]);
+      await state.saveBranchTree(bookId, {
+        version: 1,
+        rootNodeId: "root",
+        activeNodeId: "node-a",
+        nodes: [
+          {
+            nodeId: "root",
+            parentNodeId: null,
+            sourceChapterId: null,
+            sourceChapterNumber: 0,
+            branchDepth: 0,
+            branchLabel: "Main Route",
+            status: "completed",
+            snapshotRef: { chapterNumber: 1 },
+            selectedChoiceId: "choice-root-a",
+            chapterIds: ["ch-0001"],
+            displayPath: "main",
+          },
+          {
+            nodeId: "node-a",
+            parentNodeId: "root",
+            sourceChapterId: "ch-0001",
+            sourceChapterNumber: 1,
+            branchDepth: 1,
+            branchLabel: "Route A",
+            status: "active",
+            snapshotRef: { chapterNumber: 2 },
+            selectedChoiceId: null,
+            chapterIds: ["ch-0002"],
+            displayPath: "main.a",
+          },
+        ],
+        choices: [
+          {
+            choiceId: "choice-root-a",
+            fromNodeId: "root",
+            toNodeId: "node-a",
+            label: "Route A",
+            intent: "Take route A.",
+            immediateGoal: "Advance route A.",
+            expectedCost: "Lose route B.",
+            expectedRisk: "Conflict rises.",
+            hookPressure: "A hook advances.",
+            characterPressure: "A pressure rises.",
+            tone: "tense",
+            selected: true,
+          },
+        ],
+      });
+
+      const result = runStderr(["write", "rewrite", bookId, "2", "--force"]);
+      expect(result.exitCode).not.toBe(0);
+      expect(`${result.stdout}\n${result.stderr}`).toContain("Branch-aware rewrite");
+    });
   });
 
   describe("inkos analytics", () => {

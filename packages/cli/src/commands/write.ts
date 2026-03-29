@@ -114,6 +114,13 @@ writeCommand
       }
 
       const state = new StateManager(root);
+      const book = await state.loadBookConfig(bookId);
+      if (book.narrativeMode === "interactive-tree") {
+        throw new Error(
+          `Interactive-tree books do not support rewrite yet. ` +
+          `Branch-aware rewrite is not implemented.`,
+        );
+      }
       const bookDir = state.bookDir(bookId);
       const chaptersDir = join(bookDir, "chapters");
       const migrationHint = await getLegacyMigrationHint(root, bookId);
@@ -162,7 +169,6 @@ writeCommand
       const pipeline = new PipelineRunner(buildPipelineConfig(config, root));
 
       const result = await pipeline.writeNextChapter(bookId, wordCount);
-      const book = await state.loadBookConfig(bookId);
       const language = resolveCliLanguage(book.language);
 
       if (opts.json) {
