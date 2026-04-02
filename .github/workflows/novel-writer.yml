@@ -12,7 +12,7 @@ on:
         required: true
         default: 'xuanhuan'
       action:
-        description: '动作 (write-next/create-book/export/status)'
+        description: '动作'
         required: true
         default: 'write-next'
         type: choice
@@ -29,10 +29,7 @@ on:
 env:
   INKOS_LLM_PROVIDER: custom
   INKOS_LLM_BASE_URL: https://open.bigmodel.cn/api/paas/v4
-  INKOS_LLM_API_KEY: ${{ secrets.INKOS_API_KEY }}
   INKOS_LLM_MODEL: glm-4-flash
-  INKOS_TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-  INKOS_TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
 
 jobs:
   novel-writer:
@@ -51,7 +48,7 @@ jobs:
       - name: Install InkOS
         run: npm i -g @actalk/inkos
 
-      - name: Configure InkOS Global
+      - name: Configure InkOS
         run: |
           inkos config set-global \
             --provider custom \
@@ -59,15 +56,8 @@ jobs:
             --api-key "${{ secrets.INKOS_API_KEY }}" \
             --model glm-4-flash
 
-      - name: Setup Telegram Notifications
-        if: ${{ secrets.TELEGRAM_BOT_TOKEN != '' }}
-        run: |
-          inkos config set-notify \
-            --telegram-token "${{ secrets.TELEGRAM_BOT_TOKEN }}" \
-            --telegram-chat-id "${{ secrets.TELEGRAM_CHAT_ID }}"
-
       - name: Create Book
-        if: ${{ github.event.inputs.action == 'create-book' }}
+        if: github.event.inputs.action == 'create-book'
         run: |
           inkos book create \
             --title "${{ github.event.inputs.book_title }}" \
@@ -75,38 +65,42 @@ jobs:
             --brief brief.md
 
       - name: Write Chapters
-        if: ${{ github.event.inputs.action == 'write-next' }}
+        if: github.event.inputs.action == 'write-next'
         run: |
-          COUNT=${{ github.event.inputs.chapters || '1' }}
+          COUNT=${{ github.event.inputs.chapters }}
           for i in $(seq 1 $COUNT); do
             echo "===== 写第 $i 章 ====="
             inkos write next "${{ github.event.inputs.book_title }}" || true
           done
 
       - name: Export Book
-        if: ${{ github.event.inputs.action == 'export' }}
+        if: github.event.inputs.action == 'export'
         run: |
           inkos export "${{ github.event.inputs.book_title }}" --format epub
           inkos export "${{ github.event.inputs.book_title }}" --format txt
 
       - name: Show Status
-        if: ${{ github.event.inputs.action == 'status' }}
+        if: github.event.inputs.action == 'status'
         run: inkos status
 
       - name: Notify via Telegram
-        if: always() && secrets.TELEGRAM_BOT_TOKEN != ''
+        if: always()
+        env:
+          TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TG_CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          STATUS="${{ job.status }}"
-          TITLE="${{ github.event.inputs.book_title }}"
-          ACTION="${{ github.event.inputs.action }}"
-          
-          if [ "$STATUS" = "success" ]; then
-            MSG="✅ 写作完成！%0A📚 书名：${TITLE}%0A🎯 动作：${ACTION}%0A🔗 查看：${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          else
-            MSG="❌ 写作失败！%0A📚 书名：${TITLE}%0A🔗 日志：${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          if [ -n "$TG_TOKEN" ] && [ -n "$TG_CHAT" ]; then
+            STATUS="${{ job.status }}"
+            TITLE="${{ github.event.inputs.book_title }}"
+            ACTION="${{ github.event.inputs.action }}"
+            LINK="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            if [ "$STATUS" = "success" ]; then
+              MSG="✅ 写作完成！%0A📚 ${TITLE}%0A🎯 ${ACTION}%0A🔗 ${LINK}"
+            else
+              MSG="❌ 写作失败！%0A📚 ${TITLE}%0A🔗 ${LINK}"
+            fi
+            curl -s "https://api.telegram.org/bot${TG_TOKEN}/sendMessage?chat_id=${TG_CHAT}&text=${MSG}&parse_mode=HTML"
           fi
-          
-          curl -s "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=${MSG}&parse_mode=HTML"
 
       - name: Commit Results
         run: |
