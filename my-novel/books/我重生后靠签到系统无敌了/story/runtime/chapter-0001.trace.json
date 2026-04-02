@@ -1,15 +1,7 @@
 {
   "chapter": 1,
   "plannerInputs": [
-    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/author_intent.md",
-    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/current_focus.md",
-    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/story_bible.md",
-    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/volume_outline.md",
-    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/book_rules.md",
-    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/current_state.md",
-    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/pending_hooks.md",
-    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/chapter_summaries.md",
-    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/memory.db"
+    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/runtime/chapter-0001.intent.md"
   ],
   "composerInputs": [
     "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/runtime/chapter-0001.intent.md"
