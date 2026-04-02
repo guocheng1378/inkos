@@ -14,22 +14,23 @@ on:
       action:
         description: '动作'
         required: true
-        default: 'write-next'
+        default: 'create-and-write'
         type: choice
         options:
+          - create-and-write
           - write-next
           - create-book
           - export
           - status
       chapters:
-        description: '写几章 (仅 write-next 时生效)'
+        description: '写几章 (仅 write-next/create-and-write 时生效)'
         required: false
         default: '1'
 
 env:
   INKOS_LLM_PROVIDER: custom
   INKOS_LLM_BASE_URL: https://open.bigmodel.cn/api/paas/v4
-  INKOS_LLM_MODEL: glm-4
+  INKOS_LLM_MODEL: glm-4-flash
 
 jobs:
   novel-writer:
@@ -56,7 +57,22 @@ jobs:
             --api-key "${{ secrets.INKOS_API_KEY }}" \
             --model glm-4-flash
 
-      - name: Create Book
+      - name: Create Book + Write
+        if: github.event.inputs.action == 'create-and-write'
+        run: |
+          inkos init my-novel
+          cd my-novel
+          inkos book create \
+            --title "${{ github.event.inputs.book_title }}" \
+            --genre "${{ github.event.inputs.genre }}" \
+            --brief ../brief.md
+          COUNT=${{ github.event.inputs.chapters }}
+          for i in $(seq 1 $COUNT); do
+            echo "===== 写第 $i 章 ====="
+            inkos write next "${{ github.event.inputs.book_title }}" || echo "⚠️ 第 $i 章失败，继续"
+          done
+
+      - name: Create Book Only
         if: github.event.inputs.action == 'create-book'
         run: |
           inkos init my-novel
@@ -69,11 +85,11 @@ jobs:
       - name: Write Chapters
         if: github.event.inputs.action == 'write-next'
         run: |
-          cd my-novel || true
+          cd my-novel
           COUNT=${{ github.event.inputs.chapters }}
           for i in $(seq 1 $COUNT); do
             echo "===== 写第 $i 章 ====="
-            inkos write next "${{ github.event.inputs.book_title }}" || true
+            inkos write next "${{ github.event.inputs.book_title }}" || echo "⚠️ 第 $i 章失败，继续"
           done
 
       - name: Export Book
@@ -86,29 +102,11 @@ jobs:
       - name: Show Status
         if: github.event.inputs.action == 'status'
         run: |
-          cd my-novel || true
+          cd my-novel
           inkos status
 
-      - name: Notify via Telegram
-        if: always()
-        env:
-          TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TG_CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: |
-          if [ -n "$TG_TOKEN" ] && [ -n "$TG_CHAT" ]; then
-            STATUS="${{ job.status }}"
-            TITLE="${{ github.event.inputs.book_title }}"
-            ACTION="${{ github.event.inputs.action }}"
-            LINK="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-            if [ "$STATUS" = "success" ]; then
-              MSG="✅ 写作完成！%0A📚 ${TITLE}%0A🎯 ${ACTION}%0A🔗 ${LINK}"
-            else
-              MSG="❌ 写作失败！%0A📚 ${TITLE}%0A🔗 ${LINK}"
-            fi
-            curl -s "https://api.telegram.org/bot${TG_TOKEN}/sendMessage?chat_id=${TG_CHAT}&text=${MSG}&parse_mode=HTML"
-          fi
-
       - name: Commit Results
+        if: always()
         run: |
           git config user.name "InkOS Bot"
           git config user.email "bot@inkos.dev"
