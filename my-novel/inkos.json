@@ -4,8 +4,8 @@
   "language": "zh",
   "llm": {
     "provider": "custom",
-    "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
-    "model": "glm-4-flash"
+    "baseUrl": "https://open.bigmodel.cn/api/paas/v4.7",
+    "model": "glm-4.7"
   },
   "notify": [],
   "daemon": {
