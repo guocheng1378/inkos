@@ -1,0 +1,117 @@
+name: 📖 InkOS Novel Writer
+
+on:
+  workflow_dispatch:
+    inputs:
+      book_title:
+        description: '书名'
+        required: true
+        default: '我重生后靠签到系统无敌了'
+      genre:
+        description: '题材 (xuanhuan/xianxia/urban/scifi/system)'
+        required: true
+        default: 'xuanhuan'
+      action:
+        description: '动作 (write-next/create-book/export/status)'
+        required: true
+        default: 'write-next'
+        type: choice
+        options:
+          - write-next
+          - create-book
+          - export
+          - status
+      chapters:
+        description: '写几章 (仅 write-next 时生效)'
+        required: false
+        default: '1'
+
+env:
+  INKOS_LLM_PROVIDER: custom
+  INKOS_LLM_BASE_URL: https://open.bigmodel.cn/api/paas/v4
+  INKOS_LLM_API_KEY: ${{ secrets.INKOS_API_KEY }}
+  INKOS_LLM_MODEL: glm-4-flash
+  INKOS_TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+  INKOS_TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
+jobs:
+  novel-writer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install InkOS
+        run: npm i -g @actalk/inkos
+
+      - name: Configure InkOS Global
+        run: |
+          inkos config set-global \
+            --provider custom \
+            --base-url "https://open.bigmodel.cn/api/paas/v4" \
+            --api-key "${{ secrets.INKOS_API_KEY }}" \
+            --model glm-4-flash
+
+      - name: Setup Telegram Notifications
+        if: ${{ secrets.TELEGRAM_BOT_TOKEN != '' }}
+        run: |
+          inkos config set-notify \
+            --telegram-token "${{ secrets.TELEGRAM_BOT_TOKEN }}" \
+            --telegram-chat-id "${{ secrets.TELEGRAM_CHAT_ID }}"
+
+      - name: Create Book
+        if: ${{ github.event.inputs.action == 'create-book' }}
+        run: |
+          inkos book create \
+            --title "${{ github.event.inputs.book_title }}" \
+            --genre "${{ github.event.inputs.genre }}" \
+            --brief brief.md
+
+      - name: Write Chapters
+        if: ${{ github.event.inputs.action == 'write-next' }}
+        run: |
+          COUNT=${{ github.event.inputs.chapters || '1' }}
+          for i in $(seq 1 $COUNT); do
+            echo "===== 写第 $i 章 ====="
+            inkos write next "${{ github.event.inputs.book_title }}" || true
+          done
+
+      - name: Export Book
+        if: ${{ github.event.inputs.action == 'export' }}
+        run: |
+          inkos export "${{ github.event.inputs.book_title }}" --format epub
+          inkos export "${{ github.event.inputs.book_title }}" --format txt
+
+      - name: Show Status
+        if: ${{ github.event.inputs.action == 'status' }}
+        run: inkos status
+
+      - name: Notify via Telegram
+        if: always() && secrets.TELEGRAM_BOT_TOKEN != ''
+        run: |
+          STATUS="${{ job.status }}"
+          TITLE="${{ github.event.inputs.book_title }}"
+          ACTION="${{ github.event.inputs.action }}"
+          
+          if [ "$STATUS" = "success" ]; then
+            MSG="✅ 写作完成！%0A📚 书名：${TITLE}%0A🎯 动作：${ACTION}%0A🔗 查看：${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          else
+            MSG="❌ 写作失败！%0A📚 书名：${TITLE}%0A🔗 日志：${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          fi
+          
+          curl -s "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=${MSG}&parse_mode=HTML"
+
+      - name: Commit Results
+        run: |
+          git config user.name "InkOS Bot"
+          git config user.email "bot@inkos.dev"
+          git add -A || true
+          git diff --staged --quiet || git commit -m "📖 ${{ github.event.inputs.action }}: ${{ github.event.inputs.book_title }}"
+          git push || true
