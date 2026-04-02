@@ -1,0 +1,53 @@
+{
+  "chapter": 0,
+  "facts": [
+    {
+      "subject": "protagonist",
+      "predicate": "当前位置",
+      "object": "天玄大陆，林渊家中",
+      "validFromChapter": 0,
+      "validUntilChapter": null,
+      "sourceChapter": 0
+    },
+    {
+      "subject": "protagonist",
+      "predicate": "主角状态",
+      "object": "重生回到16岁，觉醒当天",
+      "validFromChapter": 0,
+      "validUntilChapter": null,
+      "sourceChapter": 0
+    },
+    {
+      "subject": "protagonist",
+      "predicate": "当前目标",
+      "object": "提升实力，复仇",
+      "validFromChapter": 0,
+      "validUntilChapter": null,
+      "sourceChapter": 0
+    },
+    {
+      "subject": "protagonist",
+      "predicate": "当前限制",
+      "object": "无",
+      "validFromChapter": 0,
+      "validUntilChapter": null,
+      "sourceChapter": 0
+    },
+    {
+      "subject": "protagonist",
+      "predicate": "当前敌我",
+      "object": "天玄宗，陈天行、赵婉儿",
+      "validFromChapter": 0,
+      "validUntilChapter": null,
+      "sourceChapter": 0
+    },
+    {
+      "subject": "protagonist",
+      "predicate": "当前冲突",
+      "object": "面对前世的仇敌和困境",
+      "validFromChapter": 0,
+      "validUntilChapter": null,
+      "sourceChapter": 0
+    }
+  ]
+}

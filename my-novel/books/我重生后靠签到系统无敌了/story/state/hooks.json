@@ -1,0 +1,49 @@
+{
+  "hooks": [
+    {
+      "hookId": "1",
+      "startChapter": 0,
+      "type": "世界观",
+      "status": "progressing",
+      "lastAdvancedChapter": 0,
+      "expectedPayoff": "0",
+      "notes": "天玄大陆的背景介绍"
+    },
+    {
+      "hookId": "2",
+      "startChapter": 0,
+      "type": "主角",
+      "status": "progressing",
+      "lastAdvancedChapter": 0,
+      "expectedPayoff": "0",
+      "notes": "主角林渊的设定"
+    },
+    {
+      "hookId": "3",
+      "startChapter": 0,
+      "type": "势力与人物",
+      "status": "progressing",
+      "lastAdvancedChapter": 0,
+      "expectedPayoff": "0",
+      "notes": "重要配角的设定"
+    },
+    {
+      "hookId": "4",
+      "startChapter": 0,
+      "type": "地理与环境",
+      "status": "progressing",
+      "lastAdvancedChapter": 0,
+      "expectedPayoff": "0",
+      "notes": "天玄大陆的地理环境"
+    },
+    {
+      "hookId": "5",
+      "startChapter": 0,
+      "type": "伏笔",
+      "status": "progressing",
+      "lastAdvancedChapter": 0,
+      "expectedPayoff": "0",
+      "notes": "禁地的秘密、系统的来历、前世的更多仇人"
+    }
+  ]
+}

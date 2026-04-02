@@ -1,0 +1,65 @@
+{
+  "chapter": 1,
+  "selectedContext": [
+    {
+      "source": "story/current_focus.md",
+      "reason": "Current task focus for this chapter.",
+      "excerpt": "（描述接下来 1-3 章最需要优先推进的内容。）"
+    },
+    {
+      "source": "story/current_state.md",
+      "reason": "Preserve hard state facts referenced by mustKeep.",
+      "excerpt": "| 字段 | 值 |"
+    },
+    {
+      "source": "story/story_bible.md",
+      "reason": "Preserve canon constraints referenced by mustKeep.",
+      "excerpt": "天玄大陆：一个庞大的修仙世界，分为五大洲，各大宗门林立，修士众多。"
+    },
+    {
+      "source": "story/volume_outline.md",
+      "reason": "Anchor the default planning node for this chapter.",
+      "excerpt": "- 卷名：《逆天重生》"
+    },
+    {
+      "source": "story/current_state.md#当前位置",
+      "reason": "Relevant current-state fact retrieved for the current chapter goal.",
+      "excerpt": "当前位置 | 天玄大陆，林渊家中"
+    },
+    {
+      "source": "story/current_state.md#主角状态",
+      "reason": "Relevant current-state fact retrieved for the current chapter goal.",
+      "excerpt": "主角状态 | 重生回到16岁，觉醒当天"
+    },
+    {
+      "source": "story/current_state.md#当前冲突",
+      "reason": "Relevant current-state fact retrieved for the current chapter goal.",
+      "excerpt": "当前冲突 | 面对前世的仇敌和困境"
+    },
+    {
+      "source": "story/current_state.md#当前目标",
+      "reason": "Relevant current-state fact retrieved for the current chapter goal.",
+      "excerpt": "当前目标 | 提升实力，复仇"
+    },
+    {
+      "source": "story/pending_hooks.md#1",
+      "reason": "Carry forward unresolved hooks that match the chapter focus.",
+      "excerpt": "世界观 | progressing | 0 | 天玄大陆的背景介绍"
+    },
+    {
+      "source": "story/pending_hooks.md#2",
+      "reason": "Carry forward unresolved hooks that match the chapter focus.",
+      "excerpt": "主角 | progressing | 0 | 主角林渊的设定"
+    },
+    {
+      "source": "story/pending_hooks.md#3",
+      "reason": "Carry forward unresolved hooks that match the chapter focus.",
+      "excerpt": "势力与人物 | progressing | 0 | 重要配角的设定"
+    },
+    {
+      "source": "story/pending_hooks.md#4",
+      "reason": "Carry forward unresolved hooks that match the chapter focus.",
+      "excerpt": "地理与环境 | progressing | 0 | 天玄大陆的地理环境"
+    }
+  ]
+}
