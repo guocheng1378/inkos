@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "number": 1,
+    "title": "重生觉醒",
+    "status": "ready-for-review",
+    "wordCount": 3604,
+    "createdAt": "2026-04-02T14:18:07.941Z",
+    "updatedAt": "2026-04-02T14:18:07.941Z",
+    "auditIssues": [
+      "[warning] 章节中使用了多个高疲劳词，如'不屑地冷笑'、'震惊'、'嘲讽'等，部分AI标记词密度偏高",
+      "[warning] 签到系统带来的爽点兑现过于简单直接，缺乏足够的挑战和铺垫",
+      "[info] 章节中设置了多个伏笔（天玄大陆背景、修炼体系、主角复仇目标），但推进较为表面",
+      "[info] 检测到3句连续以相同开头的句子，呈现列表式AI生成结构",
+      "[warning] 本章新开了 4 个伏笔，但没有回收任何旧债。",
+      "[warning] 连续出现5个不足35字的短段，容易形成短句堆砌。"
+    ],
+    "lengthWarnings": [],
+    "lengthTelemetry": {
+      "target": 3000,
+      "softMin": 2591,
+      "softMax": 3409,
+      "hardMin": 2182,
+      "hardMax": 3818,
+      "countingMode": "zh_chars",
+      "writerCount": 2414,
+      "postWriterNormalizeCount": 3604,
+      "postReviseCount": 0,
+      "finalCount": 3604,
+      "normalizeApplied": true,
+      "lengthWarning": false
+    },
+    "tokenUsage": {
+      "promptTokens": 19773,
+      "completionTokens": 6055,
+      "totalTokens": 25828
+    }
+  }
+]
