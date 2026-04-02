@@ -3,12 +3,5 @@
   "language": "zh",
   "lastAppliedChapter": 1,
   "projectionVersion": 1,
-  "migrationWarnings": [
-    "1:lastAdvancedChapter normalized from \"天玄大陆的修仙体系介绍，修炼境界：炼气→筑基→金丹→元婴→化神→合体→渡劫→大乘→飞升\" to 0",
-    "2:lastAdvancedChapter normalized from \"林渊重生获得签到系统，修为提升至炼气三层\" to 0",
-    "3:lastAdvancedChapter normalized from \"林家势力介绍，林枫（炼气五层），林天阳（筑基初期）\" to 0",
-    "4:lastAdvancedChapter normalized from \"林家测试场、武场的环境描述\" to 0",
-    "5:lastAdvancedChapter normalized from \"签到系统激活，获得《五行诀》和各项能力提升\" to 0",
-    "6:lastAdvancedChapter normalized from \"与林枫的矛盾，前世仇怨的积累\" to 0"
-  ]
+  "migrationWarnings": []
 }

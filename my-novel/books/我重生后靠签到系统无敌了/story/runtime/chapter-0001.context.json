@@ -9,32 +9,22 @@
     {
       "source": "story/current_state.md",
       "reason": "Preserve hard state facts referenced by mustKeep.",
-      "excerpt": "| 字段 | 值 |"
+      "excerpt": "初始状态卡："
     },
     {
       "source": "story/story_bible.md",
       "reason": "Preserve canon constraints referenced by mustKeep.",
-      "excerpt": "天玄大陆：一个庞大的修仙世界，分为五大洲，各大宗门林立，修士众多。"
+      "excerpt": "修炼体系：炼气 → 筑基 → 金丹 → 元婴 → 化神 → 合体 → 渡劫 → 大乘 → 飞升"
     },
     {
       "source": "story/volume_outline.md",
       "reason": "Anchor the default planning node for this chapter.",
-      "excerpt": "- 卷名：《逆天重生》"
-    },
-    {
-      "source": "story/current_state.md#当前位置",
-      "reason": "Relevant current-state fact retrieved for the current chapter goal.",
-      "excerpt": "当前位置 | 天玄大陆，林渊家中"
-    },
-    {
-      "source": "story/current_state.md#主角状态",
-      "reason": "Relevant current-state fact retrieved for the current chapter goal.",
-      "excerpt": "主角状态 | 重生回到16岁，觉醒当天"
+      "excerpt": "卷纲规划："
     },
     {
       "source": "story/current_state.md#当前冲突",
       "reason": "Relevant current-state fact retrieved for the current chapter goal.",
-      "excerpt": "当前冲突 | 面对前世的仇敌和困境"
+      "excerpt": "当前冲突 | 未婚妻和宗门天才的追杀"
     },
     {
       "source": "story/current_state.md#当前目标",
@@ -42,24 +32,34 @@
       "excerpt": "当前目标 | 提升实力，复仇"
     },
     {
+      "source": "story/current_state.md#主角状态",
+      "reason": "Relevant current-state fact retrieved for the current chapter goal.",
+      "excerpt": "主角状态 | 重生归来，觉醒签到系统"
+    },
+    {
+      "source": "story/current_state.md#当前限制",
+      "reason": "Relevant current-state fact retrieved for the current chapter goal.",
+      "excerpt": "当前限制 | 未婚妻和宗门天才的追杀"
+    },
+    {
       "source": "story/pending_hooks.md#1",
       "reason": "Carry forward unresolved hooks that match the chapter focus.",
-      "excerpt": "世界观 | progressing | 0 | 天玄大陆的背景介绍"
+      "excerpt": "世界观 | progressing | 20 | 天玄大陆的修炼体系和资源分布"
     },
     {
       "source": "story/pending_hooks.md#2",
       "reason": "Carry forward unresolved hooks that match the chapter focus.",
-      "excerpt": "主角 | progressing | 0 | 主角林渊的设定"
+      "excerpt": "主角 | progressing | 20 | 林渊的性格和金手指"
     },
     {
       "source": "story/pending_hooks.md#3",
       "reason": "Carry forward unresolved hooks that match the chapter focus.",
-      "excerpt": "势力与人物 | progressing | 0 | 重要配角的设定"
+      "excerpt": "配角 | progressing | 20 | 苏清雪、陈天行、赵婉儿的背景和动机"
     },
     {
       "source": "story/pending_hooks.md#4",
       "reason": "Carry forward unresolved hooks that match the chapter focus.",
-      "excerpt": "地理与环境 | progressing | 0 | 天玄大陆的地理环境"
+      "excerpt": "地理与环境 | progressing | 20 | 天玄大陆的地理环境和禁地"
     }
   ]
 }

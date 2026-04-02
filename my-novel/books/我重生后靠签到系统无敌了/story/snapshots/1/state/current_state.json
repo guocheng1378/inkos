@@ -3,16 +3,32 @@
   "facts": [
     {
       "subject": "protagonist",
-      "predicate": "当前位置",
-      "object": "天玄大陆，林家武场",
+      "predicate": "主角状态",
+      "object": "重生归来，觉醒签到系统，决定变强复仇",
       "validFromChapter": 1,
       "validUntilChapter": null,
       "sourceChapter": 1
     },
     {
       "subject": "protagonist",
-      "predicate": "主角状态",
-      "object": "重生回到16岁，获得签到系统，修为提升至炼气三层",
+      "predicate": "当前位置",
+      "object": "天玄大陆，林渊家中",
+      "validFromChapter": 1,
+      "validUntilChapter": null,
+      "sourceChapter": 1
+    },
+    {
+      "subject": "protagonist",
+      "predicate": "当前冲突",
+      "object": "未婚妻和宗门天才的追杀",
+      "validFromChapter": 1,
+      "validUntilChapter": null,
+      "sourceChapter": 1
+    },
+    {
+      "subject": "protagonist",
+      "predicate": "当前敌我",
+      "object": "与苏清雪关系紧密",
       "validFromChapter": 1,
       "validUntilChapter": null,
       "sourceChapter": 1
@@ -28,23 +44,7 @@
     {
       "subject": "protagonist",
       "predicate": "当前限制",
-      "object": "五行杂灵根的特殊性，需要签到系统辅助修炼",
-      "validFromChapter": 1,
-      "validUntilChapter": null,
-      "sourceChapter": 1
-    },
-    {
-      "subject": "protagonist",
-      "predicate": "当前敌我",
-      "object": "林枫（堂兄，炼气五层），林家部分族人，青云宗",
-      "validFromChapter": 1,
-      "validUntilChapter": null,
-      "sourceChapter": 1
-    },
-    {
-      "subject": "protagonist",
-      "predicate": "当前冲突",
-      "object": "与林枫的矛盾，前世仇怨的积累",
+      "object": "未婚妻和宗门天才的追杀",
       "validFromChapter": 1,
       "validUntilChapter": null,
       "sourceChapter": 1

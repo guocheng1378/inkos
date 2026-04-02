@@ -1,7 +1,15 @@
 {
   "chapter": 1,
   "plannerInputs": [
-    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/runtime/chapter-0001.intent.md"
+    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/author_intent.md",
+    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/current_focus.md",
+    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/story_bible.md",
+    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/volume_outline.md",
+    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/book_rules.md",
+    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/current_state.md",
+    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/pending_hooks.md",
+    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/chapter_summaries.md",
+    "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/memory.db"
   ],
   "composerInputs": [
     "/home/runner/work/inkos/inkos/my-novel/books/我重生后靠签到系统无敌了/story/runtime/chapter-0001.intent.md"
@@ -11,10 +19,10 @@
     "story/current_state.md",
     "story/story_bible.md",
     "story/volume_outline.md",
-    "story/current_state.md#当前位置",
-    "story/current_state.md#主角状态",
     "story/current_state.md#当前冲突",
     "story/current_state.md#当前目标",
+    "story/current_state.md#主角状态",
+    "story/current_state.md#当前限制",
     "story/pending_hooks.md#1",
     "story/pending_hooks.md#2",
     "story/pending_hooks.md#3",

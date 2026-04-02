@@ -2,13 +2,13 @@
   "rows": [
     {
       "chapter": 1,
-      "title": "重生觉醒",
-      "characters": "林渊、林枫、林天阳、林浩",
-      "events": "林渊重生觉醒签到系统，测试灵根获得《五行诀》，修炼提升至炼气三层",
-      "stateChanges": "从炼气一层提升至炼气三层，获得签到系统和《五行诀》",
-      "hookActivity": "签到系统伏笔，五行杂灵根的特殊性，前世仇怨",
-      "mood": "复仇决心，坚定自信",
-      "chapterType": "重生系统流，实力提升"
+      "title": "重生签到，逆天改命",
+      "characters": "林渊，苏清雪",
+      "events": "林渊重生，觉醒签到系统，决定变强复仇",
+      "stateChanges": "林渊重生，觉醒签到系统，决定变强复仇",
+      "hookActivity": "rebirth-cause deferred, sign-in-system-origin deferred, past-enemies deferred",
+      "mood": "紧张",
+      "chapterType": "开篇章"
     }
   ]
 }

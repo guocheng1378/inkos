@@ -3,13 +3,13 @@
 version: "1.0"
 protagonist:
   name: 林渊
-  personalityLock: [低调、隐忍、复仇、果断、冷静]
-  behavioralConstraints: [利用签到系统提升实力，守护家人和朋友，对抗邪恶势力]
+  personalityLock: [低调、隐忍、睚眦必报、果断]
+  behavioralConstraints: [利用签到系统 + 前世记忆双挂碾压对手，不滥杀无辜]
 genreLock:
   primary: xuanhuan
-  forbidden: [都市、科幻、游戏、轻小说]
+  forbidden: [都市腔、科幻腔、游戏系统播报腔、轻小说吐槽腔]
 numericalSystemOverrides:
-  hardCap: 1000
+  hardCap: 10000
   resourceTypes: [功法、丹药、神兵、灵宠、属性点]
 prohibitions:
   - 主角为推剧情突然仁慈、犯蠢、讲武德
@@ -29,9 +29,9 @@ enableFullCastTracking: false
 ---
 
 ## 叙事视角
-- 第一人称视角，以主角林渊的视角展开故事。
+本书采用第三人称视角，以主角林渊的视角展开故事。
 
 ## 核心冲突驱动
-- 主角林渊重生后，利用签到系统提升实力，对抗邪恶势力，守护家人和朋友，最终踏上飞升之路。
+本书的核心冲突是林渊重生后，利用签到系统 + 前世记忆双挂碾压对手，追求无敌修仙之路。
 
 ```
