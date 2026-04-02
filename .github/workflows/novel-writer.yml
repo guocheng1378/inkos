@@ -59,14 +59,17 @@ jobs:
       - name: Create Book
         if: github.event.inputs.action == 'create-book'
         run: |
+          inkos init my-novel
+          cd my-novel
           inkos book create \
             --title "${{ github.event.inputs.book_title }}" \
             --genre "${{ github.event.inputs.genre }}" \
-            --brief brief.md
+            --brief ../brief.md
 
       - name: Write Chapters
         if: github.event.inputs.action == 'write-next'
         run: |
+          cd my-novel || true
           COUNT=${{ github.event.inputs.chapters }}
           for i in $(seq 1 $COUNT); do
             echo "===== 写第 $i 章 ====="
@@ -76,12 +79,15 @@ jobs:
       - name: Export Book
         if: github.event.inputs.action == 'export'
         run: |
+          cd my-novel
           inkos export "${{ github.event.inputs.book_title }}" --format epub
           inkos export "${{ github.event.inputs.book_title }}" --format txt
 
       - name: Show Status
         if: github.event.inputs.action == 'status'
-        run: inkos status
+        run: |
+          cd my-novel || true
+          inkos status
 
       - name: Notify via Telegram
         if: always()
