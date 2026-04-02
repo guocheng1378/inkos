@@ -29,7 +29,7 @@ on:
 env:
   INKOS_LLM_PROVIDER: custom
   INKOS_LLM_BASE_URL: https://open.bigmodel.cn/api/paas/v4
-  INKOS_LLM_MODEL: glm-4-flash
+  INKOS_LLM_MODEL: glm-4
 
 jobs:
   novel-writer:
