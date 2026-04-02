@@ -60,6 +60,7 @@ jobs:
       - name: Create Book + Write
         if: github.event.inputs.action == 'create-and-write'
         run: |
+          rm -rf my-novel
           inkos init my-novel
           cd my-novel
           inkos book create \
@@ -75,6 +76,7 @@ jobs:
       - name: Create Book Only
         if: github.event.inputs.action == 'create-book'
         run: |
+          rm -rf my-novel
           inkos init my-novel
           cd my-novel
           inkos book create \
