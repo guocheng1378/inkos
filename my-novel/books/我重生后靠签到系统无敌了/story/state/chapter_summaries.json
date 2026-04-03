@@ -1,14 +1,3 @@
 {
-  "rows": [
-    {
-      "chapter": 1,
-      "title": "重生签到，逆天改命",
-      "characters": "林渊，苏清雪",
-      "events": "林渊重生，觉醒签到系统，决定变强复仇",
-      "stateChanges": "林渊重生，觉醒签到系统，决定变强复仇",
-      "hookActivity": "rebirth-cause deferred, sign-in-system-origin deferred, past-enemies deferred",
-      "mood": "紧张",
-      "chapterType": "开篇章"
-    }
-  ]
+  "rows": []
 }

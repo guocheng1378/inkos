@@ -1,53 +1,53 @@
 {
-  "chapter": 1,
+  "chapter": 0,
   "facts": [
     {
       "subject": "protagonist",
-      "predicate": "主角状态",
-      "object": "重生归来，觉醒签到系统，决定变强复仇",
-      "validFromChapter": 1,
-      "validUntilChapter": null,
-      "sourceChapter": 1
-    },
-    {
-      "subject": "protagonist",
       "predicate": "当前位置",
-      "object": "天玄大陆，林渊家中",
-      "validFromChapter": 1,
+      "object": "(起始地点)",
+      "validFromChapter": 0,
       "validUntilChapter": null,
-      "sourceChapter": 1
+      "sourceChapter": 0
     },
     {
       "subject": "protagonist",
-      "predicate": "当前冲突",
-      "object": "未婚妻和宗门天才的追杀",
-      "validFromChapter": 1,
+      "predicate": "主角状态",
+      "object": "(初始状态)",
+      "validFromChapter": 0,
       "validUntilChapter": null,
-      "sourceChapter": 1
-    },
-    {
-      "subject": "protagonist",
-      "predicate": "当前敌我",
-      "object": "与苏清雪关系紧密",
-      "validFromChapter": 1,
-      "validUntilChapter": null,
-      "sourceChapter": 1
+      "sourceChapter": 0
     },
     {
       "subject": "protagonist",
       "predicate": "当前目标",
-      "object": "提升实力，复仇",
-      "validFromChapter": 1,
+      "object": "(第一个目标)",
+      "validFromChapter": 0,
       "validUntilChapter": null,
-      "sourceChapter": 1
+      "sourceChapter": 0
     },
     {
       "subject": "protagonist",
       "predicate": "当前限制",
-      "object": "未婚妻和宗门天才的追杀",
-      "validFromChapter": 1,
+      "object": "(初始限制)",
+      "validFromChapter": 0,
       "validUntilChapter": null,
-      "sourceChapter": 1
+      "sourceChapter": 0
+    },
+    {
+      "subject": "protagonist",
+      "predicate": "当前敌我",
+      "object": "(初始关系)",
+      "validFromChapter": 0,
+      "validUntilChapter": null,
+      "sourceChapter": 0
+    },
+    {
+      "subject": "protagonist",
+      "predicate": "当前冲突",
+      "object": "(第一个冲突)",
+      "validFromChapter": 0,
+      "validUntilChapter": null,
+      "sourceChapter": 0
     }
   ]
 }
